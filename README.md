@@ -21,7 +21,8 @@ Please note variables commented out in `./da-patroni/values.yaml`. You can eithe
 Resource types used: secret, pv, pvc, po, cronjob, deployment, svc
 
 
-# TODO
+# Usage
 
-- TODO: we can probably replace backups on LF (NFS with RWX) into (local-storage RWO).
-- Backups will require new docker container that will list all instance DBs and dump them.
+- Run `./setup.sh test` to deploy on `test` env.
+- Run `./config.sh test` to configure patroni once it is up & running, check for for `3/3` Ready from `testk.sh get sts -n devstats devstats-postgres`.
+- Run `./delete.sh test` to delete.
