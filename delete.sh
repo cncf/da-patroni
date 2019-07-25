@@ -5,6 +5,7 @@ then
   exit 1
 fi
 change_namespace.sh $1 devstats
+"${1}h.sh" delete patroni-backup
 "${1}h.sh" delete patroni
 "${1}h.sh" delete patroni-secret
 change_namespace.sh $1 default
