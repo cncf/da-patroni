@@ -8,5 +8,5 @@ change_namespace.sh $1 devstats
 "${1}h.sh" delete patroni-backup
 "${1}h.sh" delete patroni
 "${1}h.sh" delete patroni-secret
-"${1}k.sh" delete pvc pgdata-devstats-postgres-0 pgdata-devstats-postgres-1 pgdata-devstats-postgres-2
+"${1}k.sh" delete pvc pgdata-devstats-postgres-0 pgdata-devstats-postgres-1 pgdata-devstats-postgres-2 devstats-backups
 change_namespace.sh $1 default
