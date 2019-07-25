@@ -58,74 +58,13 @@ backupsRestartPolicy: Never
 backupsStorageAccessModes: ReadWriteMany
 # backupsStorageClass: 'local-storage'
 backupsStorageClass: 'nfs-openebs-localstorage'
-backupsVolumeMountPath: '/usr/share/nginx/html/backups'
-bootstrapCommand: './devstats-helm/deploy_all.sh'
-bootstrapLDrop: ''
-bootstrapNoCreate: ''
-bootstrapPodName: devstats-provision-bootstrap
-bootstrapRestartPolicy: Never
-bootstrapUDrop: ''
-companyAcq: "companies.yaml"
 concurrencyPolicy: Forbid
-domains:
-  - name: 'teststats.cncf.io'
-    image: 'lukaszgryglicki/devstats-static-test'
-    shortname: test
-  - name: 'devstats.cncf.io'
-    image: 'lukaszgryglicki/devstats-static-prod'
-    shortname: prod
-  - name: 'devstats.cd.foundation'
-    image: 'lukaszgryglicki/devstats-static-cdf'
-    shortname: cdf
-  - name: 'devstats.graphql.org'
-    image: 'lukaszgryglicki/devstats-static-graphql'
-    shortname: graphql
 fullnameOverride: devstats
-grafanaCommand: 'grafana_start.sh'
-grafanaImage: 'lukaszgryglicki/devstats-grafana'
-grafanaMaxSurge: 1
-grafanaMaxUnavailable: 0
-grafanaNReplicas: 1
-grafanaPodName: devstats-grafana
-grafanaPort: 3000
-grafanaRestartPolicy: Always
-grafanaSecret: grafana-secret
 imagePullPolicy: Always
-ingressClass: 'nginx-test'
-indexCronsFrom: 0
-indexCronsTo: 100
-indexDomainsFrom: 0
-indexDomainsTo: 4
-indexGrafanasFrom: 0
-indexGrafanasTo: 100
-indexIngressesFrom: 0
-indexIngressesTo: 100
-indexProvisionsFrom: 0
-indexProvisionsTo: 100
-indexPVsFrom: 0
-indexPVsTo: 100
-indexServicesFrom: 0
-indexServicesTo: 100
-indexStaticsFrom: 0
-indexStaticsTo: 4
-limitsBackupsCPU: '8000m'
-limitsBackupsMemory: '32Gi'
-limitsBootstrapCPU: '4000m'
-limitsBootstrapMemory: '8Gi'
-limitsCronsCPU: '16000m'
-limitsCronsMemory: '128Gi'
-limitsGrafanasCPU: '16000m'
-limitsGrafanasMemory: '32Gi'
-limitsPostgresCPU: '56000m'
-limitsPostgresMemory: '380Gi'
-limitsProvisionsCPU: '16000m'
-limitsProvisionsMemory: '128Gi'
-limitsReportsCPU: '2000m'
-limitsReportsMemory: '8Gi'
-limitsStaticsCPU: '4000m'
-limitsStaticsMemory: '2Gi'
-limitsVacuumCPU: '1000m'
-limitsVacuumMemory: '1Gi'
+limitsBackupsCPU: '2000m'
+limitsBackupsMemory: '2Gi'
+limitsPostgresCPU: '5000m'
+limitsPostgresMemory: '48Gi'
 name: devstats
 namespace: 'devstats'
 nameOverride: devstats
