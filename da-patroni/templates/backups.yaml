@@ -62,10 +62,10 @@ spec:
             imagePullPolicy: {{ .Values.imagePullPolicy }}
             name: '{{ .Values.backupsPodName }}'
             volumeMounts:
-            - name: '{{ .Values.volumeMountName }}-backups'
+            - name: '{{ .Values.volumeMountName }}'
               mountPath: '{{ .Values.volumeMountPath }}'
           volumes:
-          - name: '{{ .Values.volumeName }}-backups'
+          - name: '{{ .Values.volumeName }}'
             persistentVolumeClaim:
               claimName: '{{ .Values.backupsPVName }}'
           restartPolicy: {{ .Values.backupsRestartPolicy }}
