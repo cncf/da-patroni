@@ -7,6 +7,7 @@
 # pgPassRO: ''
 # pgPassTeam: ''
 # pgPassRep: ''
+# pgPort: ''
 #
 # You can skip some parts of the deployment (useful when deploying partailly again)
 # skipSecret (will not attempt to create PG secret
