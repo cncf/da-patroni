@@ -24,6 +24,9 @@
 # Other evrironment options
 # backupsImage: 'lukaszgryglicki/devstats-prod'
 # backupsOnlyDBs: 'kubernetes prometheus fluentd'
+# backupsCommand: 'backup.sh'
+# backupsCommandsArgs:
+#   - "backupsarg"
 # debug: 1
 # overwritePostgresCommand: true
 # postgresCommand: 'sleep'
@@ -38,8 +41,6 @@
 # storageClass: openebs-hostpath
 # storageClass: nfs-openebs-localstorage
 # storageClass: local-storage
-# backupCommandArgs:
-#   - "backupsarg"
 # Backup into different node-group.
 backupsNodeSelector:
   lfda: elastic
