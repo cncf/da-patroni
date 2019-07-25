@@ -7,60 +7,24 @@
 # pgPassRO: ''
 # pgPassTeam: ''
 # pgPassRep: ''
-# githubOAuth: ''
-# grafanaUser: ''
-# grafanaPassword: ''
 #
 # You can skip some parts of the deployment (useful when deploying partailly again)
-# skipBootstrap (will not run initial bootstrapping - creating logs and users, but you don't need to skip it - bootstrap pod detects already created resources)
-# skipCrons (will not create new cronjobs, you should set it when cron jobs are already created, if you want to recreate cron jobs, delete existing ones first and do not set this flag)
-# skipGrafanas (will not create Grafana deployments)
-# skipPVs (will not attempt to create persistent volume claims, this is usually needed to avoid creating existing resource)
-# skipProvisions (will not create provisioning pods, usually not needed, provisioning pod will detect already provisioned projects and only provision new ones)
 # skipSecret (will not attempt to create PG secret
-# skipServices (will not attempt to create services (Load Balancers))
 # skipPostgres (will not attempt to create patroni postgres)
-# skipIngress (will not attempt to create ingress)
-# skipStatic (will not create devstats nginx static pages)
 # skipBackupsPV (will not attempt to create backups PV)
 # skipBackups (will not attempt to create backups cronjob)
-# skipVacuum (will not attempt to create vacuum cronjob)
-# skipGA (will skip setting Google Analytics)
 # skipNamespace (will skip creating devstats namespace)
-# skipBootstrap: 1
-# skipCrons: 1
-# skipGrafanas: 1
-# skipPVs: 1
-# skipProvisions: 1
+#
 # skipSecret: 1
-# skipServices: 1
 # skipPostgres: 1
-# skipIngress: 1
-# skipStatic: 1
 # skipBackupsPV: 1
 # skipBackups: 1
-# skipVacuum: ''
-# skipGA: 1
 # skipNamespace: 1
 #
 # Other evrironment options
 # backupsImage: 'lukaszgryglicki/devstats-prod'
 # backupsOnlyProjects: 'kubernetes prometheus fluentd'
-# bootstrapCommand: 'sleep'
-# bootstrapCommandArgs:
-#   - "36000"
-#   - "bootarg"
-# cmdDebug: 1
 # debug: 1
-# excludeVars: 'projects_health_partial_html'
-# forceComputeAll: 1
-# githubDebug: 1
-# grafanaCommandArgs:
-#   - "36000"
-#   - arg2
-# ingressClass: 'nginx-test'
-# ingressClass: 'nginx-prod'
-# onlyMetrics: 'events,tz'
 # overwritePostgresCommand: true
 # postgresCommand: 'sleep'
 # postgresCommandArgs:
@@ -68,49 +32,19 @@
 # postgresImageName: 'jberkus/simple-patroni:v3'
 # postgresImageName: 'lukaszgryglicki/devstats-patroni'
 # postgresImageName: 'lukaszgryglicki/devstats-patroni-new'
-# periods: 'd7:t,m:f,q:t,y10:f'
-# projectsOverride: '+cncf,+opencontainers,+istio,+knative,+zephyr,+linux,+nodejs'
-# provisionImage: 'lukaszgryglicki/devstats-prod'
-# provisionCommand: './devstats-helm/reinit.sh'
-# provisionCommand: './devstats-helm/repos.sh'
-# provisionCommand: './devstats-helm/repo_groups.sh'
-# provisionCommand: './devstats-helm/affs.sh'
-# provisionCommand: './devstats-helm/annotations.sh'
-# provisionCommand: './devstats-helm/vars.sh'
-# provisionCommand: './devstats-helm/health.sh'
-# provisionCommand: './devstats-helm/clear_devstats_running_flag.sh'
-# provisionCommand: './devstats-helm/set_provisioned_flag.sh'
-# provisionCommand: './devstats-helm/add_metric.sh'
-# provisionCommand: './devstats-helm/restore.sh'
-# provisionCommand: 'sleep'
-# provisionCommandArgs:
-#   - "36000"
-# queryOut: 1
-# reposDir: "/root/devstats_repos/"
-# restoreFrom: 'https://teststats.cncf.io/'
-# runTests: true
-# skipMetrics: 'users_activity,committers_cum'
-# skipMetrics: 'projects_health'
-# https://itnext.io/efs-persistent-volumes-on-aws-kubernetes-193e0035bbfb
-# sslEnv: test
-# useRepos: '1'
 # storageAccessModes: ReadWriteMany
 # storageClass: efs
 # storageClass: gp2
 # storageClass: openebs-hostpath
 # storageClass: nfs-openebs-localstorage
-# syncImage: 'lukaszgryglicki/devstats-minimal-prod'
-# syncCommandArgs:
-#   - "syncarg"
+# storageClass: local-storage
 # backupCommandArgs:
 #   - "backupsarg"
-affiliations: 'github_users.json'
-appNodeSelector:
-  node: devstats-app
+# Backup into different node-group.
 backupsNodeSelector:
-  node: devstats-app
+  lfda: elastic
 dbNodeSelector:
-  node2: devstats-db
+  lfda: devstats
 backupsCron: '45 3 * * *'
 backupsCronHistoryLimit: 2
 backupsCommand: './devstats-helm/backups.sh'
@@ -121,7 +55,9 @@ backupsProdServer: ''
 backupsPVName: devstats-backups
 backupsPVSize: '160Gi'
 backupsRestartPolicy: Never
+#backupsStorageAccessModes: ReadWriteOnce
 backupsStorageAccessModes: ReadWriteMany
+# backupsStorageClass: 'local-storage'
 backupsStorageClass: 'nfs-openebs-localstorage'
 backupsTestServer: '1'
 backupsVolumeMountPath: '/usr/share/nginx/html/backups'
