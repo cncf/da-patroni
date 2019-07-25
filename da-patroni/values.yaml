@@ -24,7 +24,7 @@
 # Other evrironment options
 # backupsImage: 'lukaszgryglicki/devstats-prod'
 # backupsOnlyDBs: 'kubernetes prometheus fluentd'
-# backupsCommand: 'backup.sh'
+# backupsCommand: './devel/backup_all_dbs.sh'
 # backupsCommandsArgs:
 #   - "backupsarg"
 # debug: 1
@@ -48,7 +48,7 @@ dbNodeSelector:
   lfda: devstats
 backupsCron: '45 3 * * *'
 backupsCronHistoryLimit: 2
-backupsCommand: 'backup.sh'
+backupsCommand: './devel/backup_all_dbs.sh'
 backupsOnlyDBs: ''
 backupsImage: 'lukaszgryglicki/devstats-test'
 backupsPodName: 'devstats-backups'
