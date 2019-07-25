@@ -43,9 +43,6 @@
 # skipGA: 1
 # skipNamespace: 1
 #
-# You can overwrite the number of CPU autodetected in each pod, setting this to 1 will make each pod single-threaded
-# nCPUs: 0
-#
 # Other evrironment options
 # backupsImage: 'lukaszgryglicki/devstats-prod'
 # backupsOnlyProjects: 'kubernetes prometheus fluentd'
