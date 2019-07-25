@@ -42,12 +42,8 @@ spec:
                 cpu: '{{ .Values.limitsBackupsCPU }}'
 {{ end }}
             env:
-            - name: TEST_SERVER
-              value: '{{ .Values.backupsTestServer }}'
-            - name: PROD_SERVER
-              value: '{{ .Values.backupsProdServer }}'
             - name: ONLY
-              value: '{{ .Values.backupsOnlyProjects}}'
+              value: '{{ .Values.backupsOnlyDBs}}'
             - name: DBDEBUG
               value: '{{ .Values.debug }}'
             - name: PG_PORT
