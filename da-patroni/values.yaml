@@ -76,6 +76,7 @@ patroniRetryTimeout: 60
 patroniMasterStartTimeout: 600
 patroniMaximumLagOnFailover: 5368709120
 pgSecret: pg-db
+postgresPort: 5432
 postgresSvcName: 'devstats-postgres'
 postgresImageName: 'lukaszgryglicki/devstats-patroni-new'
 postgresStorageSize: '1800Gi'
