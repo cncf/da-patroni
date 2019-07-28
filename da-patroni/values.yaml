@@ -47,6 +47,7 @@ backupsNodeSelector:
   lfda: elastic
 dbNodeSelector:
   lfda: devstats
+deployEnv: 'set-me'
 backupsCron: '45 3 * * *'
 backupsCronHistoryLimit: 2
 backupsCommand: './devel/backup_all_dbs.sh'

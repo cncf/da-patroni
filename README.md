@@ -14,7 +14,7 @@ List of secrets:
 - File `secrets/PG_PASS_REP.secret` or --set `pgPassRep=...` setup the replication user.
 
 You can install only selected templates, see `values.yaml` for detalis (refer to `skipXYZ` variables in comments), example:
-- `helm install --dry-run --debug --generate-name ./da-patroni --set skipSecret=1,skipBackupsPV=1,skipBackups=1,skipPostgres=1,skipNamespace=1`.
+- `helm install --dry-run --debug --generate-name ./da-patroni --set skipSecret=1,skipBackupsPV=1,skipBackups=1,skipPostgres=1,skipNamespace=1,deployEnv=test`.
 
 Please note variables commented out in `./da-patroni/values.yaml`. You can either uncomment them or pass their values via `--set variable=name`.
 
