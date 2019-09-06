@@ -1,5 +1,5 @@
 #!/bin/bash
-# Login to any patroni node devstats-patroni-N: ./devstats-k8s-lf/util/pod_shell.sh devstats-postgres-N
+# Login to any patroni node devstats-patroni-N: pod_shell.sh prod devstats devstats-postgres-0
 curl -s localhost:8008/config | jq .
 # \watch 2
 patronictl list
